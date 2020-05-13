@@ -8,6 +8,19 @@
   </ul>
   <%= link_to "Restaurants", restaurants_path, class: "btn btn-primary" %>
   <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+
+
+
+
+
+
+  <%= simple_form_for [ @restaurant, @review ] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.button :submit, class: "btn-primary" %>
+<% end %>
+
+
 </div>
 
 
