@@ -1,6 +1,4 @@
 <div class="container">
-  <h1>Yelp MVP</h1>
-  <%= link_to "Add", new_restaurant_path %>
   <ul class="list-group">
     <% @restaurants.each do |restaurant|%>
       <li class="list-group-item"><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
