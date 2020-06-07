@@ -40,3 +40,12 @@
   top: -20px;
   width: 40px;
 }
+
+.card-trip-infos a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    color: #e01d1d;
+  }
+}

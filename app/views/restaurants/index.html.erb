@@ -8,7 +8,10 @@
             <h2><%= link_to restaurant.name, restaurant_path(restaurant), class: "yelp-color"  %></h2>
             <p><%= restaurant.category %></p>
           </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
+          <% rating_array = restaurant.reviews.map do |review| %>
+            <% review.rating %>
+          <% end %>
+          <h2 class="card-trip-pricing"> <%= rating_array.any? ? '⭐️' * (rating_array.inject{|sum, x| sum + x} / rating_array.size) : ""%></h2>
         </div>
       </div>
     <% end %>
