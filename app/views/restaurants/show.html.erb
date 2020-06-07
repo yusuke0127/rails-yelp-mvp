@@ -1,24 +1,29 @@
 <div class="container">
-  <h1><%= @restaurant.name %></h1>
-  <p><%= @restaurant.address %></p>
-  <ul class="list-group">
-    <% @restaurant.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.content %></li>
+  <div class="restaurant-info-container">
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.address %></p>
+    <h3>Reviews </h3>
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.content %> <%= review.rating %></li>
+      <% end %>
+    </ul>
+
+  </div>
+
+
+
+
+  <div class="review-container">
+    <h3>Add a review for <%= @restaurant.name %></h3>
+    <%= simple_form_for [ @restaurant, @review ] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%= f.button :submit, class: "review-btn" %>
     <% end %>
-  </ul>
-  <%= link_to "Restaurants", restaurants_path, class: "btn btn-primary" %>
-  <%= link_to "Add a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
 
+  </div>
 
-
-
-
-
-  <%= simple_form_for [ @restaurant, @review ] do |f| %>
-    <%= f.input :content %>
-    <%= f.input :rating %>
-    <%= f.button :submit, class: "btn-primary" %>
-<% end %>
 
 
 </div>
